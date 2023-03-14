@@ -1,0 +1,111 @@
+PRINT "Welcome to the Shopping Cart Program!"
+
+READ AND WRITE "cart" with array
+READ AND WRITE "prices" with array
+
+WHILE True
+    PRINT()
+    PRINT "Please type in one of these"
+    PRINT "1. Add item "
+    PRINT "2. View cart "
+    PRINT "3. Remove Item "
+    PRINT "4. Checkout"
+    
+    READ AND WRITE "select" with number
+    STORE "select" with input("Type in a number to go on : ")
+    
+    IF "select" == 1
+        WHILE True
+            PRINT "1. Laptop     Rp 8000000"
+            PRINT "2. TV         Rp 5000000"
+            PRINT "3. Keyboard   Rp 500000"
+            PRINT "4. Headset    Rp 800000"
+            
+            READ AND WRITE "choice" with number
+            STORE "choice" with input("What would you like to add ? ")
+            
+            READ AND WRITE "item" with string
+            READ AND WRITE "price" with number
+            
+            IF "choice" == 1
+                STORE "item" with "Laptop"
+                STORE "price" with 8000000
+            IF "choice" == 2
+                STORE "item" with "TV"
+                STORE "price" with 5000000
+            IF "choice" == 3
+                STORE "item" with "Keyboard"
+                STORE "price" with 500000
+            IF "choice" == 4
+                STORE "item" with "Headset"
+                STORE "price" with 800000
+            ELSE
+                PRINT "Invalid Input"
+                break
+            
+            STORE "cart" with "item"
+            STORE "prices" with "price
+            
+            PRINT "'item' has been added to your cart."
+            PRINT "The price is 'price'"
+            break
+    
+    IF "select" == 2
+        IF "cart" EMPTY
+            PRINT "Your cart is empty"
+        ELSE
+            READ AND WRITE "total_item" with number
+            READ AND WRITE "total_price" with number
+    
+            PRINT "This is what is in your shopping cart"
+            FOR "item", "price" in "cart", "prices"):
+                PRINT "item       price"
+            ENDFOR
+            
+            STORE "total_item" with "cart" LENGTH
+            FOR "price" in "prices":
+                STORE "total_price" with "total_price" added by "price"
+            ENDFOR
+                 
+            PRINT "Total item in your cart : 'total_item'")
+            PRINT "Total Price : Rp 'total_price'"
+        
+    IF "select" == 3
+        IF "cart" EMPTY
+            PRINT "Your cart is empty"
+        ELSE
+            READ AND WRITE "takeout" with string
+            STORE "takeout" with input("What would you like to add ? ")
+            IF "takeout" in "cart":
+                READ AND WRITE "index_rmv" with number
+                STORE "index_rmv" with "cart" INDEX("takeout")
+
+                REMOVE "cart"["index_rmv"] from "cart"
+                REMOVE "prices"["index_rmv"] from "prices"
+            ELSE:
+                PRINT "Invalid Input"
+                
+    IF select == 4
+        IF "cart" EMPTY
+            PRINT "Your cart is empty"
+        ELSE:
+            READ AND WRITE "total_price" with number
+            FOR "price" in "prices":
+                STORE "total_price" with "total_price" added by "price"
+            ENDFOR
+            PRINT "Total Price : Rp 'total_price'")
+            
+            READ AND WRITE "payment" with number
+            STORE "payment" with input("Please input the amount of money for payment : Rp ")
+            
+            IF "payment" > "total_price"
+                READ AND WRITE "change_money" with number
+                STORE "change_money" with "payment" subtracted by "total_price"
+                PRINT "Transaction Success. Thank you for using our service")
+                PRINT "Change Money = 'change_money'")
+                break
+            else:
+                PRINT "Transaction Failed. The payment money is not enough"
+                
+    ELSE
+        PRINT "Invalid Input"
